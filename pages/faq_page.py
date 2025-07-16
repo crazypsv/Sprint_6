@@ -11,13 +11,13 @@ class QuestionsPage:
     @allure.step("Открытие браузера")
     def open_browser(self, browser):
         browser.get(Urls.MAIN_PAGE_URL)
-        return self
+
 
     @allure.step("Скролл к вопросам")
     def scroll_to_faq(self, browser):
         element = browser.find_element(By.CLASS_NAME, "accordion")
         browser.execute_script("arguments[0].scrollIntoView(true);", element)
-        return self
+
 
     @allure.step("Извлечение вопроса")
     def get_question(self, browser, index):
