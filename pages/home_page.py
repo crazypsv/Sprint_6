@@ -25,7 +25,7 @@ class YaScooterHomePage(BasePage):
         return self.driver.switch_to.window(self.driver.window_handles[window_number])
 
     def wait_url_until_not_about_blank(self, time=10):
-        return WebDriverWait(self.driver, time).until_not(EC.url_to_be('about:blank'))
+        return self.wait_for_url_change_from_about_blank(time)
 
     @allure.step('Перейти на страницу яндекса')
     def click_yandex_button(self):
