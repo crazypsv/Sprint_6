@@ -80,3 +80,27 @@ class YaScooterOrderPage(BasePage):
         for option in data_set['color']:
             self.choose_color(option)
         self.input_comment(data_set['comment_for_courier'])
+
+    @allure.step('Получить сообщение об ошибке неправильного имени')
+    def get_incorrect_first_name_message(self):
+        return self.find_element(Locators.INCORRECT_FIRST_NAME_MESSAGE)
+
+    @allure.step('Получить сообщение об ошибке неправильной фамилии')
+    def get_incorrect_last_name_message(self):
+        return self.find_element(Locators.INCORRECT_LAST_NAME_MESSAGE)
+
+    @allure.step('Получить сообщение об ошибке выбора метро')
+    def get_incorrect_subway_message(self):
+        return self.find_element(Locators.INCORRECT_SUBWAY_MESSAGE)
+
+    @allure.step('Получить сообщение об ошибке неправильного номера телефона')
+    def get_incorrect_telephone_number_message(self):
+        return self.find_element(Locators.INCORRECT_TELEPHONE_NUMBER_MESSAGE)
+
+    @allure.step('Проверить переход на этап "Про аренду"')
+    def check_on_rent_stage(self):
+        return len(self.find_elements(Locators.ORDER_BUTTON)) > 0
+
+    @allure.step('Проверить завершение заказа')
+    def is_order_completed(self):
+        return len(self.find_elements(Locators.ORDER_COMPLETED_INFO)) > 0
